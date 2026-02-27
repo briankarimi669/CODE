@@ -1,4 +1,4 @@
-math=90
+math=int(input("Enter your marks in maths:"))
 english=85
 physics=80
 biology=80
