@@ -1,0 +1,42 @@
+.navigation{
+    background-color: white
+    }
+    .navigation ul{
+        display: flex;
+        list-style: none;
+        font-size: 30px;
+        justify-content: right;
+        gap: 20px;
+       height: 70px;
+    
+    }
+    .navigation ul li{
+        text-decoration:none
+        color   blue
+    }
+.logo{
+    width:3150px;
+    height: 100px
+    margin: 100px
+}
+.navigation a
+
+{    text-decoration: none;
+    color: white;
+    background-color: grey;
+}
+.first{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+.first img[alt="Image 1"]{
+    width: 200px;
+    height: 200px;
+}
+.first img[alt="Image 2"]{
+    width: 200px;
+    height: 200px;
+    }
+
+

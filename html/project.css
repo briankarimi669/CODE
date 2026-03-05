@@ -1,0 +1,57 @@
+.navigation{
+    background-color: brown;
+    }
+.navigation ul{
+    display: flex;
+    list-style: none;
+    font-size: 30px;
+    justify-content: left;
+    gap: 20px;
+
+}
+.navigation ul li{
+    text-decoration:none
+    color   blue
+}
+.navigation a
+
+{    text-decoration: none;
+    color: white;
+    background-color: grey;
+}
+.first{
+    display: flex wrap;
+    gap: 40px;
+    justify-content: center;
+    background-color: lightgrey;
+}
+.first img[alt="Image 1"]{
+    width: 500px;
+    height: 500px;
+}
+.first img[alt="Image 2"]{
+    width: 500px;
+    height: 500px;
+}
+.container{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    background-color: lightgrey;
+}
+table{
+    font-size: 20px;
+    border: 2px solid black;
+    column-span: all;
+  columns: unset;
+  column-width: 400px;
+
+}
+table th{
+    background-color: red;
+      justify-content: center;
+}
+table td{
+    background-color: lightblue;
+    justify-content: right;
+}
