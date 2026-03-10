@@ -109,11 +109,10 @@
 }
 .shell img{
   width: 350px;
-  height:250px;
+  height:350px;
 
 }
 .cars{
   display: flex;
   justify-content: left;
-}
 }

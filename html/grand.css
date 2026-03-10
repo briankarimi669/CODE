@@ -1,0 +1,33 @@
+.navigation{
+    background-color: black
+    }
+.navigation ul{
+    display: flex;
+    list-style: none;
+    font-size: 30px;
+    justify-content: left;
+    gap: 20px;
+
+}
+.navigation ul li{
+    text-decoration:none
+    color   blue
+}
+.navigation a
+
+{    text-decoration: none;
+    color: white;
+}
+.first{
+    display: flex wrap;
+    gap: 40px;
+    justify-content: center;
+}
+.first img[alt="Image 1"]{
+    width: 500px;
+    height: 500px;
+}
+.first img[alt="Image 2"]{
+    width: 500px;
+    height: 500px;
+}
