@@ -1,0 +1,35 @@
+.maincontainer{
+    background-color: greenyellow;
+    width: 400px;
+    border-radius: 7px;
+    margin-left: 120px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+body{
+    background-color: lightslategray;
+    height: 100vh;
+}
+.maincontainer bottom{
+    background-color: greenyellow;
+    color: beige;
+    border-radius: 7px;
+    border-style: none;
+}
+.maincontainer input{
+    padding: top 5px;
+    border-radius: 7px;
+    border: 1px solid;
+
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    padding-left: 75px;
+    gap: 5px;
+}
+.maincontainer h3{
+    padding-left: 75px;
+}

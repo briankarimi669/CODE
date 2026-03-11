@@ -60,6 +60,8 @@
 }
 
 @media (max-width: 600px) {
+
+}
   .navbar {
     padding: 0 20px;
   }
@@ -119,4 +121,5 @@
 .container{
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
