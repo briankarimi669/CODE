@@ -24,7 +24,11 @@ body{
 .first h3{
     font-size: 30px;
 }
-
+.container{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 #rift,
 .menu{
     display: none;
