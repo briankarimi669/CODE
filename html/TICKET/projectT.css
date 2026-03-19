@@ -19,7 +19,13 @@ body{
 .first{
     background-color: azure;
     width: 250px;
-    
+}
+.first:hover{
+    background-color: aqua;
+    cursor: pointer;
+    transition: all 1s ease;
+    border-radius: 40px;
+    width: 300px;
 }
 .first h3{
     font-size: 30px;
