@@ -13,6 +13,18 @@
     text-decoration:none;
     color: white;
 }
+body{
+    background-color: grey;
+}
+.first{
+    background-color: azure;
+    width: 250px;
+    
+}
+.first h3{
+    font-size: 30px;
+}
+
 #rift,
 .menu{
     display: none;
