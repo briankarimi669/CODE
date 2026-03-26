@@ -6,7 +6,7 @@
     display: flex;
     list-style: none;
     font-size:20px;
-    justify-content:left;
+    justify-content: left;
     gap:20px;
 }
 .navigatiom ul li{
@@ -67,6 +67,7 @@ body{
     }
 .navigation ul{
     font-size: 30px;
+    text-align: center;
 }
 
 }
