@@ -8,4 +8,4 @@ elif operand == "-":
 elif operand == "*":
     print(a*b)
 elif operand== "/":
-    print(a?b)
+    print(a/b)

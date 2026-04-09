@@ -37,20 +37,20 @@ h2 {
 }
 
 .property-card img {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     transition: 2 ease;
 }
 
 .property-card {
     width: 150px;
+    height: 380px;
     justify-content: left;
     background-color: aqua;
 }
-
 .property-card img:hover {
-    width: 170px;
-    height: 170px;
+    /* width: 170px;
+    height: 170px; */
     cursor: pointer;
 }
 
@@ -70,5 +70,5 @@ button#vm {
 
 button#vm:hover {
     background-color: rgb(240, 161, 59);
-    cursor: grab;
+    cursor: grab;s
 }
