@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Rift Koders</title>
+        <link rel="stylesheet" href="website.css" id="link">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <body>
+        <div class="navigation">
+            
+            <nav>
+                <input type="checkbox" id="rift">
+                <label for="rift" class="menu">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li>home</li>
+                    <li>about</li>
+                    <li>portfolio</li>
+                    <li>contacts</li>
+                    <li>latest properties</li>
+                    <button id="btna">switch theme</button>
+                    <script>
+                        const btn =document.querySelector("#btna")
+                        const themee=document.querySelector("#link")
+                        btn.addEventListener("click", function() {
+                            if (themee.getAttribute("href")==="website.css")
+                                themee.setAttribute("href", "web.css");
+                            else 
+                                themee.setAttribute("href", "website.css");
+                            
+                        });
+
+                    </script>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="maincontainer">
+            <h1>Welcome to Rift Koders</h1>
+            <p>Your gateway to the world of coding and technology. Join us to explore the latest trends, tutorials, and insights in the tech industry.</p>
+
+            <h2>Our Services</h2>
+            <ul>
+                <li>Coding Bootcamps</li>
+                <li>Tech Workshops</li>
+                <li>Career Guidance</li>
+                <li>Community Events</li>
+            </ul>
+
+            <h2>Contact Us</h2>
+            <p>Email: riftkoders@example.com</p>
+        </div>
+
+    </body>
+</html>
