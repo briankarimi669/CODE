@@ -1,6 +1,10 @@
 .navigation{
     background-color: brown;
     }
+    .navigation img{
+        width: 100px;
+        height: 50px;
+    }
 .navigation ul{
     display: flex;
     list-style: none;
@@ -17,7 +21,6 @@
 
 {    text-decoration: none;
     color: white;
-    background-color: grey;
 }
 .first{
     display: flex wrap;

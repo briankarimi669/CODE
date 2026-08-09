@@ -1,0 +1,50 @@
+.navigation{
+    background-color: lightskyblue;
+    }
+.navigation ul{
+    display: flex;
+    list-style: none;
+    font-size: 30px;
+    justify-content: left;
+    gap: 20px;
+
+}
+.navigation ul li{
+    text-decoration:none
+    color   blue
+}
+.navigation a
+
+{    text-decoration: none;
+    color: white;
+}
+#click, .menu-btn{
+    display: none;
+}
+@media (max-width:600px){
+    .navigation{
+        padding:0 20px;
+    }
+    .menu-btn{
+        display:block;
+        color:black;
+        font-size:22px;
+        cursor: pointer;
+    }
+    .navigation ul{
+        position:fixed;
+        top:70px;
+        left:-100%;
+        background:grey;
+        height:100vh;
+        width:100%;
+        text-align: center;
+        transition: all 0.3s ease;
+        z-index: 10;
+        display: block;
+        
+    }
+    #click:checked ~ .navigation ul{
+        left:0;
+    }
+}

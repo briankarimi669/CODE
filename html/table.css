@@ -1,0 +1,48 @@
+.navigation{
+    background-color: lightskyblue;
+    }
+    .navigation img{
+        width: 200px;
+        height: 50px;
+    }
+.navigation ul{
+    display: flex;
+    list-style: none;
+    font-size: 30px;
+    justify-content: left;
+    gap: 20px;
+
+}
+.navigation ul li{
+    text-decoration:none
+    color   blue
+}
+.navigation a
+
+{    text-decoration: none;
+    color: white;
+}
+.container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+ 
+}
+.class{
+    width: 400px;
+    height: 400px;
+    display: flex;
+
+}
+.class img{
+    width: 200px;
+    height: 200px;
+}
+.class{
+    background-color: lightgrey;
+    transition: background-color 0.5s;
+}
+.class:hover{
+    background-color: lightblue;
+    cursor: pointer;
+}
