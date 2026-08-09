@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cup Analytics & 2026 Prediction</title>
+
+<style>
+/* ===============================
+   RESET
+=================================*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0b1020;
+    color:#fff;
+    line-height:1.6;
+}
+
+/* ===============================
+   NAVIGATION
+=================================*/
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#10182d;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+    font-size:1.6rem;
+    font-weight:700;
+}
+
+.logo span{
+    color:#4fc3f7;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#4fc3f7;
+}
+
+.menu-btn{
+    display:none;
+    font-size:1.8rem;
+    cursor:pointer;
+}
+
+/* ===============================
+   HERO
+=================================*/
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:50px 8%;
+    background:linear-gradient(
+        rgba(11,16,32,.9),
+        rgba(11,16,32,.9)
+    );
+}
+
+.hero-content h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    max-width:850px;
+    margin:auto;
+    color:#cfd8dc;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    margin:10px;
+    transition:.3s;
+}
+
+.primary{
+    background:#4fc3f7;
+    color:#000;
+}
+
+.secondary{
+    border:1px solid #4fc3f7;
+    color:#4fc3f7;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* ===============================
+   SECTIONS
+=================================*/
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.2rem;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#b0bec5;
+}
+
+/* ===============================
+   STATS CARDS
+=================================*/
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#10182d;
+    border-radius:15px;
+    padding:30px;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card h3{
+    color:#90caf9;
+    margin-bottom:15px;
+}
+
+.card .number{
+    font-size:2rem;
+    font-weight:700;
+}
+
+/* ===============================
+   TABLES
+=================================*/
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:800px;
+}
+
+th,td{
+    padding:15px;
+    text-align:center;
+}
+
+th{
+    background:#1a2645;
+}
+
+tr:nth-child(even){
+    background:#10182d;
+}
+
+tr:nth-child(odd){
+    background:#16203a;
+}
+
+/* ===============================
+   CHARTS
+=================================*/
+.chart-box{
+    background:#10182d;
+    padding:25px;
+    border-radius:15px;
+    margin-top:30px;
+}
+
+canvas{
+    width:100%;
+    max-width:100%;
+    height:400px;
+    background:#0f172a;
+    border-radius:10px;
+}
+
+/* ===============================
+   PREDICTION
+=================================*/
+.prediction-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.prediction-card{
+    background:#10182d;
+    padding:30px;
+    border-radius:15px;
+}
+
+.winner{
+    text-align:center;
+}
+
+.winner h1{
+    font-size:4rem;
+    color:#4fc3f7;
+}
+
+.probability{
+    font-size:2rem;
+    margin-top:15px;
+}
+
+/* ===============================
+   FOOTER
+=================================*/
+footer{
+    text-align:center;
+    padding:30px;
+    background:#10182d;
+    color:#90a4ae;
+}
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+@media(max-width:992px){
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .prediction-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+        font-size:2.4rem;
+    }
+}
+
+@media(max-width:768px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        right:-100%;
+        flex-direction:column;
+        width:250px;
+        background:#10182d;
+        padding:30px;
+        transition:.4s;
+    }
+
+    .nav-links.active{
+        right:0;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+        font-size:2rem;
+    }
+
+    .section-title h2{
+        font-size:1.8rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        World<span>Cup</span> Analytics
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#teams">Teams</a></li>
+        <li><a href="#players">Players</a></li>
+        <li><a href="#coaches">Coaches</a></li>
+        <li><a href="#prediction">Prediction</a></li>
+    </ul>
+
+    <div class="menu-btn" id="menuBtn">
+        ☰
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            FIFA World Cup Analytics
+            <br>
+            2016 – 2026
+        </h1>
+
+        <p>
+            Explore realistic mock statistics from the last
+            decade of international football and discover
+            our data-driven prediction for the 2026 FIFA
+            World Cup winner based on team performance,
+            player impact, and coaching effectiveness.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#overview" class="btn primary">
+                Explore Statistics
+            </a>
+
+            <a href="#prediction" class="btn secondary">
+                View Prediction
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="overview">
+
+    <div class="section-title">
+
+        <h2>World Cup Overview</h2>
+
+        <p>
+            Key statistics collected from the last decade.
+        </p>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="card">
+            <h3>Total Goals</h3>
+            <div class="number" id="totalGoals">341</div>
+        </div>
+
+        <div class="card">
+            <h3>Matches Played</h3>
+            <div class="number" id="totalMatches">128</div>
+        </div>
+
+        <div class="card">
+            <h3>Participating Teams</h3>
+            <div class="number" id="totalTeams">32</div>
+        </div>
+
+        <div class="card">
+            <h3>Players Analysed</h3>
+            <div class="number" id="totalPlayers">240</div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="teams">
+
+    <div class="section-title">
+
+        <h2>Top Teams (Mock Data)</h2>
+
+        <p>
+            Performance trends from 2016–2026.
+        </p>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>Team</th>
+                <th>Goals</th>
+                <th>Wins</th>
+                <th>Losses</th>
+                <th>Win %</th>
+                <th>FIFA Rank</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="teamTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="chart-box">
+
+        <canvas id="teamChart" width="900" height="400"></canvas>
+
+    </div>
+
+</section>
+
+<section id="players">
+
+    <div class="section-title">
+
+        <h2>Top Players</h2>
+
+        <p>
+            Realistic mock performance indicators.
+        </p>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>Player</th>
+                <th>Country</th>
+                <th>Goals</th>
+                <th>Assists</th>
+                <th>Rating</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="playerTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<section id="coaches">
+
+    <div class="section-title">
+
+        <h2>Coach Effectiveness</h2>
+
+        <p>
+            Based on tournaments, wins and tactical ratings.
+        </p>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>Coach</th>
+                <th>Nation</th>
+                <th>Win Rate</th>
+                <th>Tactical Score</th>
+                <th>Experience</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="coachTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<section id="prediction">
+
+    <div class="section-title">
+
+        <h2>2026 Prediction Engine</h2>
+
+        <p>
+            Team + Player + Coach weighted model.
+        </p>
+
+    </div>
+
+    <div class="prediction-grid">
+
+        <div class="prediction-card winner">
+
+            <h3>Predicted Winner</h3>
+
+            <h1 id="winnerName">
+                Argentina
+            </h1>
+
+            <div class="probability">
+                Win Probability:
+                <span id="winnerProbability">
+                    24%
+                </span>
+            </div>
+
+        </div>
+
+        <div class="prediction-card">
+
+            <h3>Prediction Formula</h3>
+
+            <p>
+                Team Strength = 50%
+            </p>
+
+            <p>
+                Player Quality = 30%
+            </p>
+
+            <p>
+                Coach Rating = 20%
+            </p>
+
+            <br>
+
+            <p id="predictionExplanation">
+                Calculating...
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    © 2026 World Cup Analytics Dashboard
+
+</footer>
+
+<script>
+
+/* MOBILE MENU */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.onclick = () => {
+    navLinks.classList.toggle("active");
+};
+
+/* ===============================
+   MOCK DATA
+=================================*/
+
+const teams = [
+
+    {
+        name:"Argentina",
+        goals:39,
+        wins:17,
+        losses:4,
+        winRate:81,
+        fifaRank:1,
+        strength:94
+    },
+
+    {
+        name:"France",
+        goals:42,
+        wins:18,
+        losses:5,
+        winRate:78,
+        fifaRank:2,
+        strength:93
+    },
+
+    {
+        name:"Brazil",
+        goals:40,
+        wins:16,
+        losses:4,
+        winRate:80,
+        fifaRank:3,
+        strength:92
+    },
+
+    {
+        name:"England",
+        goals:35,
+        wins:14,
+        losses:6,
+        winRate:70,
+        fifaRank:4,
+        strength:89
+    },
+
+    {
+        name:"Spain",
+        goals:31,
+        wins:13,
+        losses:5,
+        winRate:72,
+        fifaRank:5,
+        strength:88
+    },
+
+    {
+        name:"Portugal",
+        goals:30,
+        wins:12,
+        losses:6,
+        winRate:67,
+        fifaRank:6,
+        strength:87
+    }
+
+];
+
+const players = [
+
+    {
+        name:"Lionel Messi",
+        country:"Argentina",
+        goals:12,
+        assists:9,
+        rating:96
+    },
+
+    {
+        name:"Kylian Mbappé",
+        country:"France",
+        goals:14,
+        assists:6,
+        rating:95
+    },
+
+    {
+        name:"Vinícius Júnior",
+        country:"Brazil",
+        goals:9,
+        assists:8,
+        rating:92
+    },
+
+    {
+        name:"Jude Bellingham",
+        country:"England",
+        goals:8,
+        assists:7,
+        rating:91
+    },
+
+    {
+        name:"Pedri",
+        country:"Spain",
+        goals:5,
+        assists:10,
+        rating:90
+    }
+
+];
+
+const coaches = [
+
+    {
+        name:"Lionel Scaloni",
+        nation:"Argentina",
+        winRate:84,
+        tactical:95,
+        experience:"8 Years",
+        score:94
+    },
+
+    {
+        name:"Didier Deschamps",
+        nation:"France",
+        winRate:82,
+        tactical:94,
+        experience:"14 Years",
+        score:93
+    },
+
+    {
+        name:"Dorival Júnior",
+        nation:"Brazil",
+        winRate:76,
+        tactical:90,
+        experience:"10 Years",
+        score:89
+    },
+
+    {
+        name:"Thomas Tuchel",
+        nation:"England",
+        winRate:75,
+        tactical:91,
+        experience:"15 Years",
+        score:90
+    }
+
+];
+
+/* PART 2 CONTINUES... */
+
+</script>
+
+</body>
+</html>

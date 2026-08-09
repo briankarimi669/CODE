@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cup Analytics Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f4f4;color:#222;transition:.3s}
+.dark{background:#121212;color:#fff}
+header{background:#0b4ea2;color:#fff;padding:30px;text-align:center}
+.container{padding:20px;max-width:1200px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.dark .card{background:#1f1f1f}
+button,select,input{padding:10px;margin:5px}
+canvas{background:white;border-radius:12px;padding:10px;max-width:100%}
+.dark canvas{background:#fff}
+footer{text-align:center;padding:20px}
+@media(max-width:600px){header h1{font-size:1.8rem}}
+</style>
+</head>
+<body>
+<header>
+<h1>FIFA World Cup Analytics Dashboard</h1>
+<p>2014–2022 Stats & 2026 Prediction</p>
+<button onclick="toggleTheme()">Dark/Light Mode</button>
+</header>
+<div class="container">
+<h2>Animated Stats</h2>
+<div class="grid">
+<div class="card"><h3>Tournaments</h3><h1 id="c1">0</h1></div>
+<div class="card"><h3>Total Goals</h3><h1 id="c2">0</h1></div>
+<div class="card"><h3>Attendance</h3><h1 id="c3">0</h1></div>
+</div>
+<h2>World Cup Overview</h2>
+<div class="grid" id="cards"></div>
+<h2>Charts</h2>
+<canvas id="goalsChart"></canvas><br><br>
+<canvas id="attendanceChart"></canvas>
+<h2>Top Scorers</h2>
+<input id="search" placeholder="Search player" onkeyup="filterPlayers()">
+<ul id="players"></ul>
+<h2>Golden Boot Winners</h2>
+<ul><li>2014: James Rodríguez</li><li>2018: Harry Kane</li><li>2022: Kylian Mbappé</li></ul>
+<h2>Mock FIFA Rankings</h2>
+<ol><li>Argentina</li><li>Spain</li><li>France</li><li>England</li><li>Brazil</li></ol>
+<h2>Team Comparison</h2>
+<select id="team1"></select><select id="team2"></select>
+<button onclick="compare()">Compare</button>
+<div id="comparison"></div>
+<h2>2026 Prediction Engine</h2>
+<p>Historical Model Winner: <b>Argentina</b></p>
+<p>Simulation Model Winner: <b>Spain</b></p>
+<ul><li>Spain – 16.1%</li><li>France – 15.2%</li><li>Argentina – 13.9%</li><li>England – 12.8%</li><li>Brazil – 11.7%</li></ul>
+</div>
+<footer>World Cup Dashboard © 2026</footer>
+<script>
+const stats=[
+{year:2014,champion:'Germany',goals:171,attendance:3.4},
+{year:2018,champion:'France',goals:169,attendance:3.0},
+{year:2022,champion:'Argentina',goals:172,attendance:3.4}
+];
+const players=['Lionel Messi','Kylian Mbappé','Miroslav Klose','Harry Kane','James Rodríguez'];
+const teams={Argentina:88,Spain:92,France:90,England:85,Brazil:83};
+function animate(id,target){let n=0;const i=setInterval(()=>{n++;document.getElementById(id).innerText=n;if(n>=target)clearInterval(i)},20)}
+animate('c1',3);animate('c2',512);animate('c3',9);
+const cards=document.getElementById('cards');
+stats.forEach(s=>cards.innerHTML+=`<div class='card'><h3>${s.year}</h3><p>Champion: ${s.champion}</p><p>Goals: ${s.goals}</p><p>Attendance: ${s.attendance}M</p></div>`);
+players.forEach(p=>playersList(p));
+function playersList(p){document.getElementById('players').innerHTML+=`<li>${p}</li>`}
+function filterPlayers(){const q=search.value.toLowerCase();players.innerHTML='';players.filter(p=>p.toLowerCase().includes(q)).forEach(playersList)}
+new Chart(goalsChart,{type:'bar',data:{labels:stats.map(s=>s.year),datasets:[{label:'Goals',data:stats.map(s=>s.goals)}]}});
+new Chart(attendanceChart,{type:'line',data:{labels:stats.map(s=>s.year),datasets:[{label:'Attendance (M)',data:stats.map(s=>s.attendance)}]}});
+Object.keys(teams).forEach(t=>{team1.innerHTML+=`<option>${t}</option>`;team2.innerHTML+=`<option>${t}</option>`});
+function compare(){comparison.innerHTML=`${team1.value}: ${teams[team1.value]} vs ${team2.value}: ${teams[team2.value]}`}
+function toggleTheme(){document.body.classList.toggle('dark')}
+</script>
+</body>
+</html>

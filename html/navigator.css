@@ -1,50 +1,113 @@
-.navigation{
-    background-color: lightskyblue;
-    }
-.navigation ul{
-    display: flex;
-    list-style: none;
-    font-size: 30px;
-    justify-content: left;
-    gap: 20px;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
-.navigation ul li{
-    text-decoration:none
-    color   blue
-}
-.navigation a
 
-{    text-decoration: none;
+.navbar {
+  height: 70px;
+  width: 100%;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.logo img{
+  width: 150px ;
+  height: auto;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin: 0 5px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+  background: #fff;
+  color: #333;
+}
+
+#click, .menu-btn {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .menu-btn {
+    display: block;
     color: white;
-}
-#click, .menu-btn{
-    display: none;
-}
-@media (max-width:600px){
-    .navigation{
-        padding:0 20px;
-    }
-    .menu-btn{
-        display:block;
-        color:black;
-        font-size:22px;
-        cursor: pointer;
-    }
-    .navigation ul{
-        position:fixed;
-        top:70px;
-        left:-100%;
-        background:grey;
-        height:100vh;
-        width:100%;
-        text-align: center;
-        transition: all 0.3s ease;
-        z-index: 10;
-        display: block;
-        
-    }
-    #click:checked ~ .navigation ul{
-        left:0;
-    }
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .navbar ul {
+    position: fixed;
+    top: 70px;
+    left: -100%; 
+    background: #1b1b1b;
+    height: 100vh;
+    width: 100%;
+    display: block; 
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  #click:checked ~ ul {
+    left: 0;
+  }
+
+  .navbar ul li {
+    margin: 40px 0;
+  }
+
+  .navbar ul li a {
+    font-size: 25px;
+    display: block;
+  }
+
+  .navbar ul li a:hover {
+    background: none;
+    color: #007bff;
+  }
+  .container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .class img{
+    width: 200px;
+    height: 150px;
+
+  }
+  .class {
+    display: flex;
+  }
+  .class h1{
+    display:flex;
+    -ms-flex-direction: column;
+    
+  }
 }
