@@ -1,0 +1,157 @@
+:root {
+    --primary-bg:#ff6600; /* Orange */;
+    --accent-color: #ff6600; /* Orange */
+    --text-dark: #333;
+    --text-light: white;
+    --transition: all 0.4s ease;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ticket-container {
+    display: flex;
+    width: 1150px;
+    height: 500px;
+    color: white;
+    background: var(--primary-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+
+
+/* Artist/Left side styling */
+.ticket-left {
+    width:48%
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 20px;
+}
+
+.festival-logo {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
+
+.artist-badge {
+    background: var(--accent-color);
+    padding: 5px 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50px;
+}
+
+.artist-name {
+    font-weight: 800;
+    font-size: 1.5rem;
+    border: 2px solid white;
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+
+/* Details/Right side styling */
+.ticket-right {
+    width: 60%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ticket-container:hover .ticket-right {
+    color: white;
+}
+
+.header h2 { margin: 0; font-size: 1.4rem; }
+.location { color: var(--text-light); margin: 5px 0; }
+.ticket-container:hover .location { color: #f2f2f2; }
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0; 
+}
+
+.detail-item span {
+    font-size: 0.65rem;
+    color: var(--text-light);
+    display: block;
+}
+
+.detail-item p { margin: 5px 0; font-weight: bold; font-size: 0.9rem; }
+.ticket-container:hover .detail-item span,
+.ticket-container:hover .detail-item p { color: white; }
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-box p { font-size: 1.2rem; font-weight: 800; margin: 5px 0; }
+
+.qr_img{
+    width: 500px;
+    height: 100px;
+    background: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    justify-content: right;
+    align-items: center;
+    display: flex;
+
+}
+
+
+.mission-statement {
+    font-size: 0.7rem;
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 15px;
+}
+img {
+    height: 490px;
+    border-radius: 10px;
+    width: 200px;
+}
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0; 
+    display: block;
+    justify-content: left;
+    margin-left: 20;
+}
+.qr_img img{
+    width: 200px;
+    height: 200px;
+    background: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    justify-content: right;
+    align-items: center;
+    display: flex;
+
+}
+
+
+
