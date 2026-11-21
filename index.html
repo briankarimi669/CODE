@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find It | USIU-Africa Lost & Found</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <a class="brand" href="#" data-page="home">
+        <span class="brand-mark">U</span>
+        <span><strong>Find it</strong><small>LOST & FOUND</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <nav id="mainNav">
+        <button data-page="home" class="nav-link active">Home</button>
+        <button data-page="browse" class="nav-link">Browse items</button>
+        <button data-page="report" class="nav-link">Report an item</button>
+        <button data-page="how" class="nav-link">How it works</button>
+        <button data-page="security" class="nav-link">Security desk</button>
+    </nav>
+
+    <div class="header-actions">
+        <span id="userLabel">Guest</span>
+        <button class="btn btn-gold" id="accountButton">Student portal</button>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- HOME PAGE -->
+    <section id="homePage" class="page active">
+
+        <div class="hero">
+            <div>
+                <p class="eyebrow">LOST SOMETHING ON CAMPUS?</p>
+                <h1>Find what matters.</h1>
+                <p class="hero-copy">
+                    A simple and secure way to report lost items
+                    and reunite USIU-Africa students with their belongings.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn btn-gold" data-page="browse">
+                        Browse found items
+                    </button>
+                    <button class="btn btn-light" data-page="report">
+                        Report an item
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-illustration">
+                <div class="document-icon">▤<span>FOUND</span></div>
+                <small>YOUR CAMPUS. YOUR COMMUNITY.</small>
+            </div>
+        </div>
+
+        <div class="section-heading">
+            <h2>Quick actions</h2>
+        </div>
+
+        <div class="quick-grid">
+
+            <article class="quick-card">
+                <span class="quick-icon">＋</span>
+                <h3>Report a lost item</h3>
+                <p>Tell the campus community what you are missing.</p>
+                <button class="text-button" data-page="report">
+                    Start report →
+                </button>
+            </article>
+
+            <article class="quick-card">
+                <span class="quick-icon">⌕</span>
+                <h3>Search found items</h3>
+                <p>Browse items handed in to campus security.</p>
+                <button class="text-button" data-page="browse">
+                    Browse items →
+                </button>
+            </article>
+
+            <article class="quick-card">
+                <span class="quick-icon">✓</span>
+                <h3>Claim an item</h3>
+                <p>Answer questions to verify ownership.</p>
+                <button class="text-button" data-page="browse">
+                    Claim an item →
+                </button>
+            </article>
+
+        </div>
+
+        <div class="section-heading">
+            <h2>Recently found items</h2>
+            <button class="text-button" data-page="browse">View all items →</button>
+        </div>
+
+        <div id="homeItems" class="item-grid"></div>
+
+    </section>
+
+
+    <!-- BROWSE ITEMS PAGE -->
+    <section id="browsePage" class="page">
+
+        <div class="page-heading">
+            <h1>Browse found items</h1>
+            <p>Search items handed in to campus security.</p>
+        </div>
+
+        <div class="search-row">
+            <input
+                id="searchInput"
+                type="search"
+                placeholder="Search by item name, description or location..."
+            >
+            <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+
+        <div class="filters" id="categoryFilters">
+            <button class="filter active" data-category="All">All items</button>
+            <button class="filter" data-category="Electronics">Electronics</button>
+            <button class="filter" data-category="Bags & wallets">Bags & wallets</button>
+            <button class="filter" data-category="Clothing">Clothing</button>
+            <button class="filter" data-category="Accessories">Accessories</button>
+            <button class="filter" data-category="Other">Other</button>
+        </div>
+
+        <div class="section-heading compact">
+            <h2>Recently found</h2>
+            <span id="itemCount"></span>
+        </div>
+
+        <div id="browseItems" class="item-grid"></div>
+
+        <p id="emptyItems" class="empty-state hidden">
+            No items match your search.
+        </p>
+
+    </section>
+
+
+    <!-- REPORT LOST ITEM PAGE -->
+    <section id="reportPage" class="page">
+
+        <div class="page-heading">
+            <h1>Report an item</h1>
+            <p>Tell us about an item you have lost.</p>
+        </div>
+
+        <div class="two-column">
+
+            <form id="lostReportForm" class="panel form-panel">
+
+                <h2>Lost item details</h2>
+
+                <label>
+                    Full name
+                    <input name="name" required placeholder="Enter your name">
+                </label>
+
+                <label>
+                    Student email
+                    <input name="email" type="email" required placeholder="name@usiu.ac.ke">
+                </label>
+
+                <div class="form-grid">
+                    <label>
+                        Item name
+                        <input name="item" required placeholder="e.g. Black backpack">
+                    </label>
+
+                    <label>
+                        Category
+                        <select name="category" required>
+                            <option value="">Choose category</option>
+                            <option>Electronics</option>
+                            <option>Bags & wallets</option>
+                            <option>Clothing</option>
+                            <option>Accessories</option>
+                            <option>Other</option>
+                        </select>
+                    </label>
+                </div>
+
+                <label>
+                    Where and when did you last see it?
+                    <textarea name="lastSeen" required rows="3"></textarea>
+                </label>
+
+                <label>
+                    Description
+                    <textarea name="description" required rows="3"></textarea>
+                </label>
+
+                <button class="btn btn-primary" type="submit">
+                    Submit lost-item report
+                </button>
+
+            </form>
+
+            <aside class="info-panel">
+                <h2>Found something?</h2>
+                <p>
+                    Please take found property to the USIU-Africa
+                    campus security desk.
+                </p>
+                <div class="privacy-note">
+                    <strong>PLEASE NOTE</strong>
+                    <p>Security personnel will record and upload the item.</p>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+
+    <!-- SECURITY DASHBOARD -->
+    <section id="securityPage" class="page">
+
+        <div class="page-heading">
+            <h1>Security dashboard</h1>
+            <p>Manage found items and review ownership claims.</p>
+        </div>
+
+        <div id="securityLocked" class="panel locked-panel">
+            <h2>Security access required</h2>
+            <p>Switch to the Security demo role.</p>
+            <button class="btn btn-primary" id="securityLogin">
+                Enter security demo
+            </button>
+        </div>
+
+        <div id="securityContent" class="hidden">
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <strong id="statItems">0</strong>
+                    <span>Listed items</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong id="statClaims">0</strong>
+                    <span>Pending claims</span>
+                </div>
+
+                <div class="stat-card">
+                    <strong id="statReturned">0</strong>
+                    <span>Items returned</span>
+                </div>
+            </div>
+
+            <div class="two-column security-layout">
+
+                <form id="foundItemForm" class="panel form-panel">
+
+                    <h2>＋ Add a found item</h2>
+
+                    <label>
+                        Item name
+                        <input name="name" required placeholder="e.g. Black leather wallet">
+                    </label>
+
+                    <div class="form-grid">
+                        <label>
+                            Category
+                            <select name="category" required>
+                                <option value="">Choose category</option>
+                                <option>Electronics</option>
+                                <option>Bags & wallets</option>
+                                <option>Clothing</option>
+                                <option>Accessories</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Date found
+                            <input name="date" type="date" required>
+                        </label>
+                    </div>
+
+                    <label>
+                        Location found
+                        <input name="location" required placeholder="e.g. Student Centre">
+                    </label>
+
+                    <label>
+                        Public description
+                        <textarea name="description" rows="3" required></textarea>
+                    </label>
+
+                    <label>
+                        Upload item photograph
+                        <input name="photo" type="file" accept="image/*" required>
+                    </label>
+
+                    <div id="photoPreview" class="photo-preview">
+                        Photo preview will appear here
+                    </div>
+
+                    <h3>Private ownership question</h3>
+
+                    <label>
+                        Verification question
+                        <input name="q1" required placeholder="e.g. What brand is written inside?">
+                    </label>
+
+                    <label>
+                        Correct answer
+                        <input name="a1" required placeholder="Private answer">
+                    </label>
+
+                    <button class="btn btn-primary" type="submit">
+                        Publish found item
+                    </button>
+
+                </form>
+
+                <div class="panel">
+                    <h2>Recent claims</h2>
+                    <div id="claimsList"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section id="howPage" class="page">
+
+        <div class="page-heading">
+            <h1>How it works</h1>
+            <p>A simple process to recover lost belongings.</p>
+        </div>
+
+        <div class="steps-grid">
+
+            <article class="step-card">
+                <span>01</span>
+                <h2>Hand it to Security</h2>
+                <p>Anyone who finds an item takes it to campus security.</p>
+            </article>
+
+            <article class="step-card">
+                <span>02</span>
+                <h2>Security records it</h2>
+                <p>Security photographs and records the item.</p>
+            </article>
+
+            <article class="step-card">
+                <span>03</span>
+                <h2>Owner answers a quiz</h2>
+                <p>The student answers private ownership questions.</p>
+            </article>
+
+            <article class="step-card">
+                <span>04</span>
+                <h2>Security verifies</h2>
+                <p>Security checks the claimant before releasing the item.</p>
+            </article>
+
+        </div>
+
+        <div class="privacy-banner">
+            <h2>Your belongings deserve a safe return.</h2>
+            <p>Private verification details are reserved for Security.</p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <span>USIU-AFRICA • LOST & FOUND</span>
+    <span>A safer campus, together.</span>
+</footer>
+
+
+<!-- STUDENT LOGIN DIALOG -->
+<dialog id="accountDialog" class="modal">
+
+    <form method="dialog">
+        <button class="close-button">×</button>
+    </form>
+
+    <h2>Student portal</h2>
+
+    <form id="studentLoginForm" class="form-panel">
+
+        <label>
+            Your full name
+            <input name="name" required placeholder="Full name">
+        </label>
+
+        <label>
+            Student email
+            <input name="email" type="email" required placeholder="name@usiu.ac.ke">
+        </label>
+
+        <button class="btn btn-primary" type="submit">
+            Continue as student
+        </button>
+
+    </form>
+
+    <p>DEMO ACCESS</p>
+
+    <button class="btn btn-outline full-width" id="securityRoleButton">
+        Continue as Security (demo)
+    </button>
+
+    <button class="text-button full-width" id="logoutButton">
+        Sign out
+    </button>
+
+</dialog>
+
+
+<!-- CLAIM QUIZ DIALOG -->
+<dialog id="claimDialog" class="modal">
+    <form method="dialog">
+        <button class="close-button">×</button>
+    </form>
+
+    <div id="claimContent"></div>
+</dialog>
+
+<div id="toast" class="toast"></div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
